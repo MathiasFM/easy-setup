@@ -19,11 +19,3 @@ else
     echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
     echo "Added /usr/local/go/bin to the PATH in .bashrc"
 fi
-
-source ~/.bashrc
-
-if go version; then
-        echo "Go has been successfully installed!"
-else
-        echo "Something went wrong!"
-fi
