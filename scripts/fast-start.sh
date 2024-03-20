@@ -5,13 +5,12 @@ sudo apt upgrade -y
 
 bash ~/easy-setup/scripts/brew-install.sh
 
-source .bashrc
+source ~/.bashrc
 
 bash ~/easy-setup/scripts/go-install.sh
 
-source .bashrc
+source ~/.bashrc
 
-sudo apt-get install build-essential procps curl file git -y
+bash ~/easy-setup/scripts/k9s-install.sh
 
-brew install derailed/k9s/k9s
-
+source ~/.bashrc
