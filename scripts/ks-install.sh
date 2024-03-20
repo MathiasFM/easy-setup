@@ -1,5 +1,9 @@
 #!/bin/bash
 
+brew install fzf
+
+echo 'eval "$(fzf --bash)"' >> ~.bashrc
+
 echo '
 ks() {
   bold=$(tput bold)
