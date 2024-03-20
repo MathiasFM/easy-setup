@@ -63,4 +63,12 @@ IPADDR=$(curl ifconfig.me && echo "")
 NODENAME=$(hostname -s)
 POD_CIDR="192.168.0.0/16"
 
-sudo kubeadm init --apiserver-advertise-address=$IPADDR  --apiserver-cert-extra-sans=$IPADDR  --pod-network-cidr=$POD_CIDR --node-name $NODENAME
+sudo kubeadm init --control-plane-endpoint=$IPADDR --apiserver-cert-extra-sans=$IPADDR --pod-network-cidr=$POD_CIDR --node-name $NODENAME --ignore-preflight-errors Swap | tee kubeadm_init_output.log
+
+mkdir -p $HOME/.kube/configs
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/configs/jungle-cluster
+sudo chown $(id -u):$(id -g) $HOME/.kube/configs/jungle-cluster
+
+
+
+
