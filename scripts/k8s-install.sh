@@ -69,6 +69,4 @@ mkdir -p $HOME/.kube/configs
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/configs/jungle-cluster
 sudo chown $(id -u):$(id -g) $HOME/.kube/configs/jungle-cluster
 
-
-
-
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-
