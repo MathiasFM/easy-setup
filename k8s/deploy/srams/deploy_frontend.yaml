@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: srams-frontend
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: srams-frontend
