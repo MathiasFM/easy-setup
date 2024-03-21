@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: srams-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: srams-frontend
   template:
     metadata:
       labels:
-        app: my-app
+        app: srams-frontend
     spec:
       containers:
-      - name: my-app
+      - name: srams-frontend
         image: ghcr.io/p3-hype/srams-frontend:v1.2.3
         ports:
         - containerPort: 80
