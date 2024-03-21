@@ -4,7 +4,7 @@ metadata:
   name: srams-frontend-service
 spec:
   selector:
-    app: srams-frontned
+    app: srams-frontend
   ports:
     - protocol: TCP
       port: 80
