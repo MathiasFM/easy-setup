@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: <name>
+  namespace: <name>
+  labels:
+    service: <name>
+spec:
+  serviceName: "<name>"
+  replicas: 1
+  selector:
+    matchLabels:
+      service: <name>
+  template:
+    metadata:
+      labels:
+        service: <name>
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: <name>
+          image: registry.<registry-provider>/<name>:<tag>
+          ports:
+            - containerPort: 8080
+              name: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - all
+          volumeMounts:
+            - mountPath: <path-to-mount>
+              name: volume
+  volumeClaimTemplates:
+    - metadata:
+        name: volume
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 2Gi
